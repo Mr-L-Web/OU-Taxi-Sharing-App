@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <!--
+	/***********
+	 * OU TM352 Block 3, TMA03: index.html
+	 *
+	 * To function correctly this file must be placed in a Cordova project and the appopriate plugins installed.
+	 * You need to complete the code which is commented with TODO.
+	 *
+	 * Released by Chris Thomson / Stephen Rice: Dec 2020
+	 * Modified and submitted by (your name here)
+	 ************/
+ --->
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js" type="text/javascript" charset="utf-8"></script>
+    <title>Taxi Sharing</title>
+  </head>
+  <body>
+    <h1>Taxi Sharing</h1>
+    <div>
+	<form>
+	<label for="oucu">Register With Your OUCU:</label>
+	<input type="text" id="oucu" name="oucu"><br><br>
+	<label for="starTime">Select Taxi Arrival Date/Time:</label>
+	<input type="datetime-local" id="startTime" name="startTime"><br><br>
+	<label for="endTime">Select Passenger Wait Duration(in hours):</label>
+	<input type="number" id="endTime" name="endTime"><br><br>
+	<label for="address">Select Pick Up Address:</label>
+	<select name="address" id="address">
+		<option value = "Milton Keynes Central">Milton Keynes Central station</option>
+		<option value = "Open University, Milton Keynes">Open University campus, Milton Keynes</option>
+	</select>
+	</form>
+    </div>
+    <div>
+	<button type="button" onclick="controller.registerUser()">Register OUCU</button>
+	<button type="button" onclick="controller.offerTaxi()">Offer Taxi</button>
+	<button type="button" onclick="controller.requestTaxi()">Request Taxi</button>
+	<button type="button" onclick="controller.cancel()">Cancel Taxi</button>
+	<button type="button" onclick="controller.updateMap()">Update Map</button> <br><br>
+	<form>
+	<label for="shareCount">How many people are paying:</label>
+	<input type="number" id="shareCount" name="shareCount"><br><br>
+	<label for="licenceNum">Enter the Taxi's licence plate number:</label>
+	<input type="text" id="licenceNum" name="licenceNum"><br><br>
+	</form>
+	<button type="button" onclick="controller.payTaxi()">Pay With Google</button>
+    </div>
+    <div id="mapContainer" style="height: 70vh; width: auto"></div>
+
+
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/helpers.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+  </body>
+</html>
